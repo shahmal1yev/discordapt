@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord Linux Repo</title>
+  <meta name="description" content="Community apt repo for Discord on Linux distros. Updated hourly.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-github-username.github.io/discord-linux-repo/">
+  <meta property="og:title" content="Discord Linux Repo">
+  <meta property="og:description" content="Community apt repo for Discord on Linux distros. Updated hourly.">
+  <meta property="og:image" content="https://your-github-username.github.io/discord-linux-repo/og-image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://your-github-username.github.io/discord-linux-repo/">
+  <meta property="twitter:title" content="Discord Linux Repo">
+  <meta property="twitter:description" content="Community apt repo for Discord on Linux distros. Updated hourly.">
+  <meta property="twitter:image" content="https://your-github-username.github.io/discord-linux-repo/og-image.png">
+
+  <style>
+    :root {
+      --background: #1e1e1e;
+      --primary-text: #f4f4f4;
+      --secondary-text: #aaaaaa;
+      --highlight: #5865f2;
+      --highlight-hover: #4854d7;
+      --button-bg: #3e3e3e;
+      --card-bg: #2c2c2c;
+      --copy-btn-bg: #5865f2;
+      --copy-btn-hover-bg: #4854d7;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: var(--background);
+      color: var(--primary-text);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: var(--highlight);
+      padding: 2rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+    }
+
+    .content {
+      max-width: 1000px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--highlight);
+    }
+
+    p {
+      color: var(--secondary-text);
+    }
+
+    ul,
+    ol {
+      list-style-position: inside;
+      text-align: left;
+      margin-top: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      color: var(--primary-text);
+    }
+
+    .code-block {
+      background-color: var(--button-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 1rem 0;
+      position: relative;
+    }
+
+    .code-block code {
+      color: var(--highlight);
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: var(--copy-btn-bg);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .copy-btn:hover {
+      background-color: var(--copy-btn-hover-bg);
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--highlight);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--highlight-hover);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      background-color: var(--card-bg);
+      color: var(--secondary-text);
+    }
+
+    @media (min-width: 768px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Discord Linux Repository</h1>
+    <p>Automatically updated apt repository for Linux distributions</p>
+  </header>
+
+  <main>
+    <div class="content">
+      <div class="card">
+        <h2>Installation</h2>
+        <ol>
+          <li>Add the repository key:
+            <div class="code-block">
+              <code>$ sudo apt-key adv --keyserver keyserver.debian.com --recv-keys XXXXXXXXXXXXXXXX</code>
+              <button class="copy-btn" onclick="copyText(this)">Copy</button>
+            </div>
+          </li>
+          <li>Add the repository source:
+            <div class="code-block">
+              <code>$ echo "deb https://example.com/discord-repo stable main" | sudo tee /etc/apt/sources.list.d/discord.list</code>
+              <button class="copy-btn" onclick="copyText(this)">Copy</button>
+            </div>
+          </li>
+          <li>Update the package list:
+            <div class="code-block">
+              <code>$ sudo apt update</code>
+              <button class="copy-btn" onclick="copyText(this)">Copy</button>
+            </div>
+          </li>
+          <li>Install Discord:
+            <div class="code-block">
+              <code>$ sudo apt install discord</code>
+              <button class="copy-btn" onclick="copyText(this)">Copy</button>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h2>About</h2>
+          <p>This repository was created to make installing and updating Discord for Linux easier.</p>
+          <ul>
+            <li>Automatically updated</li>
+            <li>Latest version of Discord</li>
+            <li>Easy to install</li>
+            <li>Community-driven</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Contribute</h2>
+          <p>If you'd like to help maintain and improve this repository, you can report issues, suggest improvements, or submit pull requests directly on GitHub. Your contributions help ensure the repository stays up-to-date and useful for everyone.</p>
+              <a href="https://github.com/shahmal1yev/discordapt" class="btn">View on GitHub</a>
+        </div>
+
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Discord Linux Repo. Maintained by <a href="https://github.com/shahmal1yev" style="color: var(--highlight);">@shahmal1yev</a>.</p>
+  </footer>
+
+
+  <script>
+    function copyText(button) {
+            var codeBlock = button.previousElementSibling.textContent;
+            navigator.clipboard.writeText(codeBlock).then(function() {
+                button.textContent = "Copied!";
+                setTimeout(function() {
+                    button.textContent = "Copy";
+                }, 2000);
+            }).catch(function(error) {
+                console.error('Copy failed', error);
+            });
+        }
+  </script>
+
+</body>
+
+</html>
